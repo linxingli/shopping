@@ -1,1 +1,12 @@
 @charset "UTF-8";
+.bg-login {
+    background-color: #222d32;
+}
+
+.mt_100 {
+    margin-top: 100px;
+}
+
+.panel-heading {
+    text-align: center;
+}

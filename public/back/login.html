@@ -7,15 +7,55 @@
     <title>乐淘后台管理系统-登录页面</title>
     <!-- 引入bootstrap的css -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入表单验证插件的css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <!-- 引入nprogress的css文件 -->
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <!-- 引入common.css -->
     <link rel="stylesheet" href="./css/common.css">
 </head>
-<body>
-    
+<body class="bg-login">
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <!-- 登录提示框 -->
+            <div class="panel panel-default panel-primary mt_100">
+                <div class="panel-heading">
+                    <h4 class="panel-title">后台管理系统</h4>
+                </div>
+                <div class="panel-body">
+                    <!-- form表单 用户名密码-->
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="username" class="col-sm-3 control-label">用户名</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="请输入用户名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">密码</label>
+                            <div class="col-sm-9">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                            <button type="reset" class="btn btn-default pull-left">重置</button>
+                            <button type="submit" class="btn btn-default pull-right">登录</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 引入jq -->
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap.js -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入基于bootstrap的表单验证插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入nprogress.js -->
+    <script src="./lib/nprogress/nprogress.js"></script>
     <!-- 引入common.js -->
     <script src="./js/common.js"></script>
     <!-- 引入login.js -->
