@@ -28,7 +28,7 @@ if(currentUrl.indexOf('login.html')==-1){
 
 //分类管理切换开关
 $('.child').prev().on('click',function(){
-    $('.child').toggle();
+    $(this).next().slideToggle();
 });
 
 // menu按钮切换开关
