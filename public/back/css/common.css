@@ -24,7 +24,6 @@ a:visited,a:hover,a:active,a:link {
     text-align: center;
 }
 
-/* ---------------------index主页 -------------------------*/
 html,body {
     height: 100%;
 }
@@ -138,4 +137,21 @@ html,body {
     padding: 10px;
 }
 
+/* --------------------index部分-------------------------- */
 
+/* 图表区域 */
+.data_table {
+    width: 100%;
+}
+/* 左边图表 */
+.data_table .left_table {
+    width: 45%;
+    height: 400px;
+    background-color: skyblue;
+}
+/* 右边图表 */
+.data_table .right_table {
+    width: 45%;
+    height: 400px;
+    background-color: skyblue;
+}
