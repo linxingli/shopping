@@ -2,6 +2,19 @@
 .bg-login {
     background-color: #222d32;
 }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited,a:hover,a:active,a:link {
+    text-decoration: none;    
+}
 
 .mt_100 {
     margin-top: 100px;
@@ -10,3 +23,119 @@
 .panel-heading {
     text-align: center;
 }
+
+/* ---------------------index主页 -------------------------*/
+html,body {
+    height: 100%;
+}
+
+/* 左侧边栏 */
+.aside_left {
+    height: 100%;
+    background-color: #222d32;
+    position: absolute;    
+    left: 0;
+    top:0;
+    width: 180px;
+    transition: all 1s;
+}
+.aside_left.now{
+    left: -180px;
+}
+
+/* 头部标题 */
+.aside_title {
+    width: 100%;
+    height: 50px;
+    background-color: #367fa9;
+    text-align: center;
+    line-height: 50px;
+}
+.aside_title >a {
+    color: #fff;
+    font-size: 26px;
+}
+/* 用户信息 */
+.user_info {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.user_info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;    
+}
+.user_info span {
+    color: #fff;    
+}
+/* 导航列表 */
+.nav_list {
+    width: 100%;
+}
+.nav_list ul {
+    width: 100%;
+}
+.nav_list ul > li {
+    list-style: none;
+}
+
+.nav_list ul > li > a {
+    color: #ccc;
+    display: block;
+    width: 100%;
+    line-height: 32PX;
+    text-align: center;       
+    border: 3px solid transparent;    
+}
+
+.nav_list ul > li >a.active {
+    border-left:3px solid #367fa9;
+    background-color: #000;
+    color: #fff;
+}
+
+.child {
+    padding-left: 65px;
+}
+.child > a {
+    padding: 5px;
+    font-size: 14px;
+    color: #ccc;
+    display: block;
+}
+.child > a.now {
+    color: #fff;
+}
+
+
+
+/* 右边主体 */
+.main_right {
+    height: 100%;
+    width: 100%;
+    padding-left: 180px;    
+    transition: all 1s;
+}
+.main_right.now {
+    padding-left:0;
+}
+/* 顶部通栏 */
+.main_topbar {
+    height: 50px;
+    background-color: #3c8dbc;
+    padding-left:10px; 
+    padding-right:10px; 
+}
+
+.main_topbar > a {
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;    
+}
+/* 内容部分 */
+.content {
+    padding: 10px;
+}
+
+

@@ -18,5 +18,21 @@
     "formidable": "*",
     "moment": "2.17.1",
     "node-uuid": "*"
-  }
+  },
+  "description": "### 移动端",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinXingLi/letao.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinXingLi/letao/issues"
+  },
+  "homepage": "https://github.com/LinXingLi/letao#readme"
 }

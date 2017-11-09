@@ -7,3 +7,16 @@ $(document).ajaxStart(function(){
 $(document).ajaxStop(function(){
     NProgress.done();
 });
+
+//分类管理切换开关
+$('.child').prev().on('click',function(){
+    $('.child').toggle();
+});
+
+// menu按钮切换开关
+$('.menu').on('click',function(){
+    // 左侧栏缩小 操作类 toggleClass()
+    $('.aside_left').toggleClass('now');
+    // 右边同时变大  操作类 toggleClass()
+    $('.main_right').toggleClass('now');
+});
