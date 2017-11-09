@@ -89,7 +89,7 @@ $(function(){
     // 重置按钮点击事件
     $('[type=reset]').on('click',function(){
         // 重置表单
-        //获取到validator实例，调用resetForm方法
+        //获取到bootstrapValidator实例，调用resetForm方法
         $form.data("bootstrapValidator").resetForm();
     });
 
