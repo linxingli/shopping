@@ -42,7 +42,7 @@ $('.menu').on('click',function(){
 //logout按钮退出登录
 $('.logout').on('click',function(){
     // 弹出确认框
-    $('.modal').modal();
+    $('#logoutModal').modal();
     // 点击确认退出(因为on注册事件不会覆盖,所以事件嵌套时要用off()方法解绑)
     $('.btn-primary').off().on('click',function(){
         // 同时发送ajax,清除登录信息

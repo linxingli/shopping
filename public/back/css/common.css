@@ -157,3 +157,10 @@ html,body {
 }
 
 /* ---------------- user部分 --------------- */
+/* 表格td居中 (使用交集选择器,提高权重,避免原样式的覆盖)*/
+.table.table-bordered td {
+    text-align: center;
+    /* td 中线对齐 */    
+    vertical-align: middle;
+}
+
