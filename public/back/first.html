@@ -7,6 +7,8 @@
     <title>乐淘后台管理系统-一级分类</title>
     <!-- 引入bootstrap的css -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入表单校验插件的css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
     <!-- 引入nprogress的css文件 -->
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <!-- 引入common.css -->
@@ -56,7 +58,24 @@
                 <li><a href="javascript:;">分类管理</a></li>
                 <li><a href="first.html">一级分类</a></li>
             </ol>
-            
+            <!-- 添加分类按钮 -->
+            <button class="btn btn-default btn_add">添加分类</button>
+            <!-- 表格 -->
+            <table class="table table-bordered mt_20">
+                <thead>
+                    <tr>
+                        <td style="width:20%">序号</td>
+                        <td style="width:80%">分类名称</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 挖个坑 -->
+                </tbody>
+            </table>
+            <!-- 添加分页控件 -->
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
         </div>
     </div>
     <!-- logout确认框 -->
@@ -78,13 +97,52 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <!-- 添加分类框 -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="form-group">
+                        <input type="text" name="categoryName" class="form-control" id="exampleInputEmail1" placeholder="请输入一级分类名称">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" form="form" class="btn btn-primary">确定</button>
+            </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- 模板 -->
+    <script type="text/html" id="tmp">
+        {{each rows v i}}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.categoryName}}</td>
+        </tr>
+        {{/each}}
+    </script>
     <!-- 引入jq -->
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap.js -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入表单校验插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <!-- 引入nprogress.js -->
     <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入模板引擎 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
     <!-- 引入common.js -->
     <script src="./js/common.js"></script>
+    <!-- 引入First.js -->
+    <script src="./js/first.js"></script>
 </body>
 </html>

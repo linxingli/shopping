@@ -20,6 +20,9 @@ a:visited,a:hover,a:active,a:link {
     margin-top: 100px;
 }
 
+.mt_20 {
+    margin-top: 20px;
+}
 .panel-heading {
     text-align: center;
 }
@@ -164,3 +167,20 @@ html,body {
     vertical-align: middle;
 }
 
+/* ----------------second部分---------------- */
+.upload {
+    width: 80px;
+    height: 30px;
+    position: relative;
+}
+.btn_select {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#File {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
