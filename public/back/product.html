@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘后台管理系统-二级分类</title>
+    <title>乐淘后台管理系统-商品管理</title>
     <!-- 引入bootstrap的css -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入表单验证插件的css文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
     <!-- 引入nprogress的css文件 -->
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <!-- 引入common.css -->
@@ -53,9 +55,31 @@
             <!-- 面包屑-层级导航-路径导航 -->
             <ol class="breadcrumb">
                 <li class="active"><a href="index.html">管理系统</a></li>
-                <li><a href="product.html">商品管理</a></li>
+                <li><a href="javascript:;">商品管理</a></li>
             </ol>
-            
+            <!-- 添加分类按钮 -->
+            <button class="btn btn-default btn_add" type="submit">添加商品</button>
+            <!-- 表格 -->
+            <table class="table table-bordered mt_20">
+                <thead>
+                    <tr>
+                        <td style="width:5%">序号</td>
+                        <td style="width:25%">商品名称</td>
+                        <td style="width:25%">商品描述</td>
+                        <td style="width:10%">商品库存</td>
+                        <td style="width:10%">商品尺寸</td>
+                        <td style="width:10%">商品状态</td>
+                        <td style="width:15%">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 挖个坑 -->
+                </tbody>
+            </table>
+            <!-- 分页控件 -->
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
         </div>
     </div>
     <!-- logout确认框 -->
@@ -77,13 +101,112 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <!-- 添加分类确认框 -->
+    <div class="modal fade" id="cateModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑商品</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="selectText">请选择二级分类名称</span> 
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!-- 挖个坑 -->
+                            </ul>
+                        </div>
+                        <input type="hidden" name="brandId" id="brandId">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="proName" placeholder="请输入商品名称">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" name="proDesc" placeholder="请输入商品描述"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="num" placeholder="请输入商品库存">                            
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="price" placeholder="请输入商品价格">                            
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="oldPrice" placeholder="请输入商品原价">                            
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="size" placeholder="请输入商品尺码（例如：30-50">                            
+                    </div>
+                    <div class="form-group">
+                        <div class="upload">
+                            <button class="btn btn-default btn_select">上传图片</button>
+                            <input type="file" id="File" name="pic1" data-url="/product/addProductPic" multipart>
+                        </div>
+                        <span>提示:只能上传三张图片</span>
+                        <input type="hidden" name="productLogo" class="hideImg">                        
+                    </div>
+                    <div class="form-group imgBox">
+                        <!-- <img src="./images/none.png" class="preview" width="100" height="100" alt=""> -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" form="form" class="btn btn-primary">确定</button>
+            </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- 模板 -->
+    <script type="text/html" id="tmp">
+        {{each rows v i}}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.proName}}</td>
+            <td>{{v.proDesc}}</td>
+            <td>{{v.num}}</td>
+            <td>{{v.size}}</td>
+            <td>{{v.statu==1?"已上架":"已下架"}}</td>
+            <td>
+                {{if v.status==1}}
+                <button type="button" class="btn btn-success">上架</button>
+                {{else if v.status!=1}}
+                <button type="button" class="btn btn-danger">下架</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 模板二 -->
+    <script type="text/html" id="tmp1">
+        {{each rows v i}}
+        <li><a href="javascript:;" data-id="{{v.id}}">{{v.brandName}}</a></li>
+        {{/each}}
+    </script>
     <!-- 引入jq -->
     <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- jquery ui小部件，上传插件依赖了jquery ui的小部件 -->
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <!-- 如果上传图片需要跨域，那么需要引入这个js文件，如果不跨域，则不需要引入 -->
+    <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script>
+    <!-- jquery上传插件 -->
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <!-- 引入bootstrap.js -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入分页的js文件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 引入表单验正插件的js -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入nprogress.js -->
     <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入模板引擎 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
     <!-- 引入common.js -->
     <script src="./js/common.js"></script>
+    <!-- 引入product.js -->
+    <script src="./js/product.js"></script>
 </body>
 </html>
