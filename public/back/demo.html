@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .left {
+            height: 100%;
+            width: 180px;
+            float: left;
+            background-color: skyblue;
+            
+        }
+        .right {
+            height: 100%;
+            
+            background-color: yellowgreen;
+            position: relative;
+            overflow: hidden;
+        }
+        span {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 10px;
+            
+        }
+        .pull-left {
+            /* float: left; */
+            left: 10px;
+        }
+        .pull-right {
+            /* float: right; */
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left"></div>    
+    <div class="right">
+        <span class="pull-left"></span>
+        <span class="pull-right"></span>
+    </div>
+</body>
+</html>

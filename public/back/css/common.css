@@ -35,11 +35,12 @@ html,body {
 .aside_left {
     height: 100%;
     background-color: #222d32;
-    position: absolute;    
+    position: fixed;    
     left: 0;
     top:0;
     width: 180px;
     transition: all 1s;
+    /* float: left;     */
 }
 .aside_left.now{
     left: -180px;
@@ -116,8 +117,9 @@ html,body {
 .main_right {
     height: 100%;
     width: 100%;
-    padding-left: 180px;    
     transition: all 1s;
+    padding-left: 180px;
+    
 }
 .main_right.now {
     padding-left:0;
@@ -128,6 +130,9 @@ html,body {
     background-color: #3c8dbc;
     padding-left:10px; 
     padding-right:10px; 
+    position: fixed;
+    
+    
 }
 
 .main_topbar > a {
@@ -138,6 +143,7 @@ html,body {
 /* 内容部分 */
 .content {
     padding: 10px;
+    padding-top: 60px;
 }
 
 /* --------------------index部分-------------------------- */
